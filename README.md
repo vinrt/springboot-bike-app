@@ -14,16 +14,17 @@ Maven
 Java - 1.8
 Apache - 2.0
 IntelliJ
-Depencies spring boot parent, web, plugin 
+Dependencies : spring boot parent, web, spring plugin, 1.8 plugin  
+
 Installing
 A step by step series of examples that tell you how to get this project running
 
-1. Unzip the demo file
+1. Unzip the springboot-bike-app file
 2. Open IntelliJ and click on import project
 4. Select Maven while Importing dependencies 
 5. Click on next 
 6. Select jdk, project name and click finish
-7. Run "demo"
+7. Run "springboot-bike-app"
 8. Ensure tomcat is up and running
 
 Authors
@@ -32,4 +33,4 @@ Vinay Raghav Tiwari - for any queries - email
 Acknowledgments
 Postman Client and Swagger Inspector
 Spring Boot 2.0.0
-Java Spring Web REST Apis Projects
+Java Spring Web REST Apis 
