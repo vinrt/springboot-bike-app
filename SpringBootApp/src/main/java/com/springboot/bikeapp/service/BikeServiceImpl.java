@@ -1,16 +1,12 @@
 package com.springboot.bikeapp.service;
 
 import com.springboot.bikeapp.model.BikeModel;
-import com.sun.tools.classfile.Opcode;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-/**
- * Created by vinayraghavtiwari on 06/12/18.
- */
+
 @Service
 public class BikeServiceImpl implements BikeService {
 
@@ -20,11 +16,7 @@ public class BikeServiceImpl implements BikeService {
     @Override
     public void addBikeDetails(BikeModel bikeModel) {
 
-        bikeModel.setId(1);
-        bikeModel.setBikeModel("2019");
-        bikeModel.setBikeName("Harley");
-        bikeModel.setBikeType("Vintage");
-
+        bikeModel.setId((bikemodelset.size()+1));
         bikemodelset.add(bikeModel);
 
     }
