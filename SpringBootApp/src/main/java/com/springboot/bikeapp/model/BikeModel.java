@@ -10,13 +10,6 @@ public class BikeModel {
     private String bikeModel;
     private String bikeType;
 
-    public BikeModel(Integer id, String bikeName, String bikeModel, String bikeType) {
-        this.id = id;
-        this.bikeName = bikeName;
-        this.bikeModel = bikeModel;
-        this.bikeType = bikeType;
-    }
-
     public Integer getId() {
         return id;
     }
