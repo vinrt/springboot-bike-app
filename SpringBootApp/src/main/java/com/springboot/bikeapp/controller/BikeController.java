@@ -8,12 +8,8 @@ package com.springboot.bikeapp.controller;
 import com.springboot.bikeapp.model.BikeModel;
 import com.springboot.bikeapp.service.BikeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -25,19 +21,25 @@ public class BikeController {
     @Autowired
     private BikeService bikeservice;
 
-    @RequestMapping("/details")
-    public Set<BikeModel> getDetails(){
+    @RequestMapping("/findbikes")
+    public Set<BikeModel> getDetails() {
         return bikeservice.getBikeDetails();
     }
 
     @RequestMapping("/{Id}")
-    public BikeModel getId(@PathVariable Integer Id){
+    public BikeModel getId(@PathVariable Integer Id) {
         return bikeservice.findById(Id);
     }
 
-    @RequestMapping("/add")
-    public void addDetails(BikeModel bike){
+    @RequestMapping(value = "/addbikes", method = RequestMethod.POST)
+    public void addDetails(@RequestParam String bikeName,
+                           @RequestParam String bikeModel,
+                           @RequestParam String bikeType) {
 
+        BikeModel bike = new BikeModel();
+        bike.setBikeName(bikeName);
+        bike.setBikeModel(bikeModel);
+        bike.setBikeType(bikeType);
         bikeservice.addBikeDetails(bike);
 
     }
