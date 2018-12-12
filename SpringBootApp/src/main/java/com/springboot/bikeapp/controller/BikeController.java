@@ -21,17 +21,17 @@ public class BikeController {
     @Autowired
     private BikeService bikeservice;
 
-    @RequestMapping("/findbikes")
+    @RequestMapping(value = "/find", method = RequestMethod.GET)
     public Set<BikeModel> getDetails() {
         return bikeservice.getBikeDetails();
     }
 
-    @RequestMapping("/{Id}")
+    @RequestMapping(value = "/{Id}", method = RequestMethod.GET)
     public BikeModel getId(@PathVariable Integer Id) {
         return bikeservice.findById(Id);
     }
 
-    @RequestMapping(value = "/addbikes", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void addDetails(@RequestParam String bikeName,
                            @RequestParam String bikeModel,
                            @RequestParam String bikeType) {
@@ -42,5 +42,23 @@ public class BikeController {
         bike.setBikeType(bikeType);
         bikeservice.addBikeDetails(bike);
 
+    }
+    @RequestMapping(value = "/update/{Id}", method = RequestMethod.POST)
+    public void updateDetails(@PathVariable Integer Id,
+    					   @RequestParam String bikeName,
+                           @RequestParam String bikeModel,
+                           @RequestParam String bikeType) {
+    	BikeModel bike = bikeservice.findById(Id);
+    	if(bike !=null) {
+    		if(bikeName !=null && !bikeName.isEmpty())
+    		bike.setBikeName(bikeName);
+    		if(bikeModel !=null && !bikeModel.isEmpty())
+    		bike.setBikeModel(bikeModel);
+    		if(bikeType !=null && !bikeType.isEmpty())
+    		bike.setBikeType(bikeType);
+    		
+    		bikeservice.updateBikes(bike);
+    	}
+    	
     }
 }

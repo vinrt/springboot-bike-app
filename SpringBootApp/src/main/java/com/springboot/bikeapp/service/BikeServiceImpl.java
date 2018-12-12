@@ -38,4 +38,17 @@ public class BikeServiceImpl implements BikeService {
 
         return null;
     }
+
+	@Override
+	public void updateBikes(BikeModel bikeModel) {
+		for(BikeModel bikemodel: bikemodelset) {
+			if(bikeModel.getId().equals(bikemodel.getId())){
+					bikemodel.setBikeName(bikeModel.getBikeName());
+					bikemodel.setBikeModel(bikeModel.getBikeModel());
+					bikemodel.setBikeType(bikeModel.getBikeType());
+			}
+			
+		}
+		
+	}
 }

@@ -1,14 +1,13 @@
 package com.springboot.bikeapp.model;
 
-/**
- * Created by vinayraghavtiwari on 06/12/18.
- */
+
 public class BikeModel {
 
     private Integer id;
     private String bikeName;
     private String bikeModel;
     private String bikeType;
+
 
     public Integer getId() {
         return id;
